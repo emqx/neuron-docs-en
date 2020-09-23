@@ -4,7 +4,10 @@
     "prism",
     "hints",
     "simpletabs",
-    "cuav-chapters",
+    "expandable-chapters",
+    "chapter-fold",
+    "code",
+    "splitter",
     "edit-link",
     "scripts",
     "anchors",
@@ -12,19 +15,9 @@
     "emqx",
     "-lunr",
     "-search",
-    "search-pro",
-    "favicon"
+    "search-pro"
   ],
   "pluginsConfig": {
-    "favicon": {
-      "shortcut": "assets/images/favicon.ico",
-      "bookmark": "assets/images/favicon.ico",
-      "appleTouch": "assets/images/favicon.ico",
-      "appleTouchMore": {
-        "120x120": "assets/images/favicon.ico",
-        "180x180": "assets/images/favicon.ico"
-      }
-    },
     "anchor-navigation-ex": {
       "showLevel": false,
       "multipleH1": false,
@@ -36,6 +29,11 @@
       "pdf": "styles/pdf.css",
       "mobi": "styles/mobi.css",
       "epub": "styles/epub.css"
+    },
+    "scripts": {
+      "files": [
+        "./_js/emqx-docs.js"
+      ]
     },
     "github": {
       "url": "https://github.com/emqx/emqx"

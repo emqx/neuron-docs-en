@@ -22,9 +22,9 @@ This statement marks a label number (1-999) at this location, which can be used 
 
 Example:
 
-| POS120 | \* goto here if end of routine |
+|        |                                |
 | ------ | ------------------------------ |
-
+| POS120 | \* goto here if end of routine |
 
 ### DO {#endpoint-do}
 
