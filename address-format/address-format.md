@@ -15,7 +15,7 @@ General Details
 | Physical interface  | RS485           |
 | Default settings    | 9600/8/N/1      |
 
-# STN!DST!ADDR
+### STN!DST!ADDR
 
 **STN** is the slave station device number
 
@@ -23,9 +23,9 @@ General Details
 
 **ADDR** is the register address as following:
 
-| Word |     | DDDDD | 0 ~ 65535 | Work Area (word) |
+|      |     |       |           |                  |
 | ---- | --- | ----- | --------- | ---------------- |
-
+| Word |     | DDDDD | 0 ~ 65535 | Work Area (word) |
 
 Note: Because the 1771KG is directly connected to the CPU, the STN and DST should be set to the same number (address of 1771KG module).
 
@@ -46,7 +46,7 @@ General Details
 | Physical interface  | RS485           |
 | Default settings    | 9600/8/N/1      |
 
-# STN!DST!ADDR
+### STN!DST!ADDR
 
 **STN** is the slave station device number (KE/KF2 module address)
 
@@ -54,9 +54,9 @@ General Details
 
 **ADDR** is the register address as following.
 
-| Word |     | DDDDD | 0 ~ 65535 | Work Area (word) |
+|      |     |       |           |                  |
 | ---- | --- | ----- | --------- | ---------------- |
-
+| Word |     | DDDDD | 0 ~ 65535 | Work Area (word) |
 
 Note: the KE or KF2 module inserts its address as the source, and this address will be the used data file number in the PLC5.
 
@@ -75,15 +75,15 @@ General Details
 | Physical interface  | RS232           |
 | Default settings    | 9600/8/N/1      |
 
-# STN!ADDR
+##### STN!ADDR
 
 **STN** is the slave station number (CPU) (1 – 247)
 
 **ADDR** is the register address as following.
 
-| Word | W   | DDDDD | 0 ~ 32767 | Register (word) |
+|      |     |       |           |                 |
 | ---- | --- | ----- | --------- | --------------- |
-
+| Word | W   | DDDDD | 0 ~ 32767 | Register (word) |
 
 Example: **10!W100** means word 100 in slave station 10.
 
@@ -98,13 +98,13 @@ General Details
 | Physical interface  | Ethernet        |
 | Default settings    | Port: 502       |
 
-# ADDR
+##### ADDR
 
 **ADDR** is the register address as following:
 
-| Word | W   | DDDDD | 0 ~ 32767 | Register |
+|      |     |       |           |          |
 | ---- | --- | ----- | --------- | -------- |
-
+| Word | W   | DDDDD | 0 ~ 32767 | Register |
 
 Example:**W4000** means word address 4000.
 
@@ -119,15 +119,15 @@ General Details
 | Physical interface  | RS232                                                                                  |
 | Default settings    | 9600/8/N/1                                                                             |
 
-# STN!ADDR
+### STN!ADDR
 
 **STN** is the slave station number (Ad0 in CPU) (1 – 31)
 
 **ADDR** is the register address as following:
 
-| Word | W   | DDDDD | 0 ~ 32767 | Register (word) |
+|      |     |       |           |                 |
 | ---- | --- | ----- | --------- | --------------- |
-
+| Word | W   | DDDDD | 0 ~ 32767 | Register (word) |
 
 Example: **1!W100** means word 100 in slave number 1.
 
@@ -142,15 +142,15 @@ General Details
 | Physical interface  | RS232          |
 | Default settings    | 9600/8/N/1     |
 
-# STN!ADDR
+### STN!ADDR
 
 **STN** is the slave station number (CPU) (1 – 247)
 
 **ADDR** is the register address as following
 
-| Word | R   | DDDD | 0 ~ 3071 | Register (word) |
+|      |     |      |          |                 |
 | ---- | --- | ---- | -------- | --------------- |
-
+| Word | R   | DDDD | 0 ~ 3071 | Register (word) |
 
 Example: **1!R100** means word 100 in slave number 1.
 
@@ -165,7 +165,7 @@ General Details
 | Physical Interface | RS232                     |
 | Default settings   | 9600/8/N/1                |
 
-# ADDR
+### ADDR
 
 **ADDR** is the register address as following:
 
@@ -190,7 +190,7 @@ General Details
 | Physical Interface | RS232                     |
 | Default settings   | 9600/8/N/1                |
 
-# STN!ADDR
+### STN!ADDR
 
 **STN** is station number/module number (0 – 31)
 
@@ -217,7 +217,7 @@ General Details
 | Physical Interface | RS232           |
 | Default settings   | 9600/8/N/1      |
 
-# DBddd.DBWddddd
+### DBddd.DBWddddd
 
 **ADDR** is the address as following
 
@@ -248,7 +248,7 @@ General Details
 | Physical interface  | RS232           |
 | Default settings    | 9600/8/N/1      |
 
-# DBddd.DBWddddd
+### DBddd.DBWddddd
 
 **ADDR** is the address as following
 
@@ -281,7 +281,7 @@ General Details
 | Physical Interface  | Ethernet                     |
 | Default settings    | Port: 2200                   |
 
-# DBddd.DBWddddd
+### DBddd.DBWddddd
 
 **ADDR** is the address as following
 
@@ -314,7 +314,7 @@ General Details
 | Physical interface  | Ethernet                 |
 | Default settings    | Port: 102                |
 
-# DBddd.DBWddddd
+### DBddd.DBWddddd
 
 **ADDR** is the address as following
 
@@ -347,7 +347,7 @@ General Details
 | Physical Interface | RS232           |
 | Default settings   | 9600/7/E/1      |
 
-# ADDR
+### ADDR
 
 **ADDR** is the register address
 
@@ -378,7 +378,7 @@ General Details
 | Physical Interface | RS232           |
 | Default settings   | 9600/7/E/1      |
 
-# ADDR
+### ADDR
 
 **ADDR** is the register address as following:
 
@@ -410,7 +410,7 @@ General Details
 | Physical Media      | Ethernet        |
 | Default settings    | Port: 2000      |
 
-# ADDR
+### ADDR
 
 **ADDR** is the register address as following:
 
@@ -439,8 +439,7 @@ General Details
 | Word | Z   | DD      | 0 ~ 19      | Index Register          |
 | Word | ZR  | HHHHH   | 0 ~ fe7a5   | File Register           |
 | Word | D   | DDDDDDD | 0 ~ 4212735 | Data Register           |
-| Word | SD  | DDDD    | 0 ~ 2047    |
-|      |
+| Word | SD  | DDDD    | 0 ~ 2047    |                         |
 
 Example: **D100** means word 100 in D data memory area.
 
@@ -455,7 +454,7 @@ General Details
 | Physical Media   | RS485           |
 | Default settings | 9600/8/N/1      |
 
-# STN!ADDR
+### STN!ADDR
 
 **STN** is slave number or device ID (0-247)
 
@@ -478,7 +477,7 @@ General Details
 | Physical Interface | Ethernet        |
 | Default settings   | Port: 502       |
 
-# STN!ADDR
+### STN!ADDR
 
 **STN** is slave number or device ID (0-247)
 
@@ -503,7 +502,7 @@ General Details
 | Physical Interface | Ethernet            |
 | Default settings   | Port: 502           |
 
-# STN!ADDR
+### STN!ADDR
 
 **STN** is slave number or device ID (0-247)
 
@@ -528,7 +527,7 @@ General Details
 | Physical Interface | Ethernet        |
 | Default settings   | Port: 102       |
 
-# FC!ADDR
+### FC!ADDR
 
 **FC** is functional constraints value as following:
 
@@ -581,7 +580,7 @@ General Details
 | Physical Interface | Ethernet       |
 | Default settings   | Port: 4840     |
 
-# IX!NODEID
+### IX!NODEID
 
 **IX** is the namespace index. (1-32767)
 
