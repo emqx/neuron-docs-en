@@ -50,7 +50,7 @@
     }
   },
   "title": "EMQ X Neuron",
-  "description": "MQTT Messaging Broker documentation",
+  "description": "The industrial IoT edge protocol gateway supports the construction of an Industry 4.0 platform in the 5G era",
   "author": "EMQX Team",
   "language": "en",
   "structure": {
