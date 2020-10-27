@@ -7,10 +7,10 @@
   - [Download](getting-started/install.md#endpoint-download)
   - [Pre-requisites](getting-started/install.md#endpoint-pre-requisites)
   - [New Installation](getting-started/install.md#endpoint-new-installation)
-  - [Setting the Shell Path](getting-started/install.md#endpoint-setting)
   - [Starting the System](getting-started/install.md#endpoint-starting)
   - [Stopping the System](getting-started/install.md#endpoint-stopping)
-  - [Command Switches](getting-started/install.md#endpoint-command)
+  - [Optional Switches](getting-started/install.md#endpoint-command)
+  - [Running in Docker](getting-started/install.md#endpoint-docker)
 
 - Web Interface
 

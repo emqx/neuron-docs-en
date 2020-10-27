@@ -6,16 +6,19 @@ This document describes the tag address formats for Neuron to setup with various
 
 ## Allen-Bradley PLC2 (half duplex) {#endpoint-PLC2}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_df1hp2 |
+| Settings            | Parameters      |
 | ------------------- | --------------- |
+| Runtime module      | neuron_o_df1hp2 |
 | Driver name         | df1hp2          |
 | Protocol            | DF1 half-duplex |
 | Physical interface  | RS485           |
 | Default settings    | 9600/8/N/1      |
 
-### STN!DST!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">STN!DST!ADDR</span>
 
 **STN** is the slave station device number
 
@@ -23,9 +26,9 @@ General Details
 
 **ADDR** is the register address as following:
 
-|      |     |       |           |                  |
-| ---- | --- | ----- | --------- | ---------------- |
-| Word |     | DDDDD | 0 ~ 65535 | Work Area (word) |
+| Type |     | Format | Range     | Description      |
+| ---- | --- | ------ | --------- | ---------------- |
+| Word |     | DDDDD  | 0 ~ 65535 | Work Area (word) |
 
 Note: Because the 1771KG is directly connected to the CPU, the STN and DST should be set to the same number (address of 1771KG module).
 
@@ -37,16 +40,19 @@ Set 8 (10 octal) for 1771-KG and set 0 for 1785-KE and 1770-KF2 in KG mode
 
 ## Allen-Bradley PLC5 (half duplex) {#endpoint-PLC5}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_df1ph5 |
+| Settings            | Parameters      |
 | ------------------- | --------------- |
+| Runtime module      | neuron_o_df1ph5 |
 | Driver name         | df1ph5          |
 | Protocol            | DF1 half-duplex |
 | Physical interface  | RS485           |
 | Default settings    | 9600/8/N/1      |
 
-### STN!DST!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">STN!DST!ADDR</span>
 
 **STN** is the slave station device number (KE/KF2 module address)
 
@@ -54,9 +60,9 @@ General Details
 
 **ADDR** is the register address as following.
 
-|      |     |       |           |                  |
-| ---- | --- | ----- | --------- | ---------------- |
-| Word |     | DDDDD | 0 ~ 65535 | Work Area (word) |
+| Type |     | Format | Range     | Description      |
+| ---- | --- | -----  | --------- | ---------------- |
+| Word |     | DDDDD  | 0 ~ 65535 | Work Area (word) |
 
 Note: the KE or KF2 module inserts its address as the source, and this address will be the used data file number in the PLC5.
 
@@ -64,113 +70,129 @@ Example: 28!16 (KE/KF2 module number 34 octal and destination node=CPU number 20
 
 Set 8 (10 octal) for 1771-KG and set 0 for 1785-KE and 1770-KF2 in KG mode
 
-## Schneider Modbus RTU for TSX7 SCM {#endpoint-TSX7-SCM}
+## Schneider TSX7 SCM (Modbus RTU) {#endpoint-TSX7-SCM}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_tsxmbr |
+| Settings            | Parameters      |
 | ------------------- | --------------- |
+| Runtime module      | neuron_o_tsxmbr |
 | Driver name         | tsxmbr          |
 | Protocol            | Modbus RTU      |
 | Physical interface  | RS232           |
 | Default settings    | 9600/8/N/1      |
 
-##### STN!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">STN!ADDR</span>
 
 **STN** is the slave station number (CPU) (1 – 247)
 
 **ADDR** is the register address as following.
 
-|      |     |       |           |                 |
-| ---- | --- | ----- | --------- | --------------- |
-| Word | W   | DDDDD | 0 ~ 32767 | Register (word) |
+| Type |     | Format | Range     | Description     |
+| ---- | --- | -----  | --------- | --------------- |
+| Word | W   | DDDDD  | 0 ~ 32767 | Register (word) |
 
 Example: **10!W100** means word 100 in slave station 10.
 
-## Schneider Modbus TCP {#endpoint-TCP}
+## Schneider TSX7 SCM (Modbus TCP) {#endpoint-TCP}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_tsxmbt |
+| Settings            | Parameters      |
 | ------------------- | --------------- |
+| Runtime module      | neuron_o_tsxmbt |
 | Driver name         | tsxmbt          |
 | Protocol            | Modbus TCP      |
 | Physical interface  | Ethernet        |
-| Default settings    | Port: 502       |
+| Default settings    | 502             |
 
-##### ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">ADDR</span>
 
 **ADDR** is the register address as following:
 
-|      |     |       |           |          |
-| ---- | --- | ----- | --------- | -------- |
-| Word | W   | DDDDD | 0 ~ 32767 | Register |
+| Type |     | Format | Range     | Description      |
+| ---- | --- | -----  | --------- | ---------------- |
+| Word | W   | DDDDD  | 0 ~ 32767 | Register         |
 
 Example:**W4000** means word address 4000.
 
 ## Schneider Telemecanique UNI-TE {#endpoint-UNI-TE}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_unite                                                                         |
-| ------------------- | -------------------------------------------------------------------------------------- |
+| Settings            | Parameters     |
+| ------------------- | -------------- |
+| Runtime module      | neuron_o_unite                                                                         |
 | Driver name         | unite                                                                                  |
 | Protocol            | TSX SCM 2161 (Uni-Telway), directly on the built-in UNI-TE port on a V4 (or later) CPU |
 | Physical interface  | RS232                                                                                  |
 | Default settings    | 9600/8/N/1                                                                             |
 
-### STN!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">STN!ADDR</span>
 
 **STN** is the slave station number (Ad0 in CPU) (1 – 31)
 
 **ADDR** is the register address as following:
 
-|      |     |       |           |                 |
-| ---- | --- | ----- | --------- | --------------- |
-| Word | W   | DDDDD | 0 ~ 32767 | Register (word) |
+| Type |     | Format | Range     | Description     |
+| ---- | --- | ------ | --------- | --------------- |
+| Word | W   | DDDDD  | 0 ~ 32767 | Register (word) |
 
 Example: **1!W100** means word 100 in slave number 1.
 
 ## ABB SattControl Comli {#endpoint-Comli}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_comli |
+| Settings            | Parameters     |
 | ------------------- | -------------- |
+| Runtime module      | neuron_o_comli |
 | Driver name         | comli          |
-| Protocol            | comli          |
+| Protocol            | COMLI          |
 | Physical interface  | RS232          |
 | Default settings    | 9600/8/N/1     |
 
-### STN!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">STN!ADDR</span>
 
 **STN** is the slave station number (CPU) (1 – 247)
 
 **ADDR** is the register address as following
 
-|      |     |      |          |                 |
-| ---- | --- | ---- | -------- | --------------- |
-| Word | R   | DDDD | 0 ~ 3071 | Register (word) |
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
+| Word | R   | DDDD   | 0 ~ 3071 | Register (word) |
 
 Example: **1!R100** means word 100 in slave number 1.
 
 ## Omron Single HostLink (Point to Point) {#endpoint-Single-HostLink}
 
-General Details
+### General Details
 
-| Runtime Instance   | neuron_o_omrhls           |
-| ------------------ | ------------------------- |
-| Driver Name        | omrhls                    |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module     | neuron_o_omrhls           |
+| Driver name        | omrhls                    |
 | Protocol           | Host-Link sysmac c-series |
-| Physical Interface | RS232                     |
+| Physical interface | RS232                     |
 | Default settings   | 9600/8/N/1                |
 
-### ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">ADDR</span>
 
 **ADDR** is the register address as following:
 
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
 | Word | AR  | DDDD | 0 ~ 4095 | Auxiliary Relay        |
-| ---- | --- | ---- | -------- | ---------------------- |
 | Word | IR  | DDDD | 0 ~ 4095 | I/O and Internal Relay |
 | Word | HR  | DDDD | 0 ~ 4095 | Hold Relay             |
 | Word | LR  | DDDD | 0 ~ 4095 | Link Relay             |
@@ -181,23 +203,27 @@ Example: **DM100** means word 100 in DM data memory area.
 
 ## Omron Multiple HostLink (MasterSlave) {#endpoint-HostLink}
 
-General Details
+### General Details
 
-| Runtime Instance   | neuron_o_omrhls           |
-| ------------------ | ------------------------- |
-| Driver Name        | omrhls                    |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module     | neuron_o_omrhls           |
+| Driver name        | omrhls                    |
 | Protocol           | Host-Link sysmac c-series |
-| Physical Interface | RS232                     |
+| Physical interface | RS232                     |
 | Default settings   | 9600/8/N/1                |
 
-### STN!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">STN!ADDR</span>
 
 **STN** is station number/module number (0 – 31)
 
 **ADDR** is the register address as following:
 
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
 | Word | AR  | DDDD | 0 ~ 4095 | Auxiliary Relay        |
-| ---- | --- | ---- | -------- | ---------------------- |
 | Word | IR  | DDDD | 0 ~ 4095 | I/O and Internal Relay |
 | Word | HR  | DDDD | 0 ~ 4095 | Hold Relay             |
 | Word | LR  | DDDD | 0 ~ 4095 | Link Relay             |
@@ -208,16 +234,19 @@ Example: **10!DM100** means word 100 in data memory in slave 10.
 
 ## Siemens S5 3964R/RK512 {#endpoint-siemens-s5}
 
-General Details
+### General Details
 
-| Runtime Instance   | neuron_o_s539rk |
-| ------------------ | --------------- |
-| Driver Name        | s539rk          |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module     | neuron_o_s539rk |
+| Driver name        | s539rk          |
 | Protocol           | 3964R/RK512     |
-| Physical Interface | RS232           |
+| Physical interface | RS232           |
 | Default settings   | 9600/8/N/1      |
 
-### DBddd.DBWddddd
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">ADDR</span>
 
 **ADDR** is the address as following
 
@@ -225,30 +254,34 @@ DB is the data block (0 – 999)
 
 DBW(_ **word offset** _) is the data word in that data block
 
-| Word | I           | DDDD       | 0 ~ 4095           | Input         |
+| Type |     | Format | Range    | Description     |
 | ---- | ----------- | ---------- | ------------------ | ------------- |
+| Word | I           | DDDD       | 0 ~ 4095           | Input         |
 | Word | Q           | DDDD       | 0 ~ 4095           | Output        |
 | Word | M           | DDDD       | 0 ~ 4095           | Marker Memory |
-| Word | DB0~999.DBW | DDDDDDDDDD | 0 ~ 655350 ~ 65535 | Data Memory   |
+| Word | DB0~999.DBW | DDDDD<br>DDDDD | 0 ~ 65535<br>0 ~ 65535 | Data Memory   |
 | Word | T           | DDD        | 0 ~ 255            | Timer         |
 | Word | C           | DDD        | 0 ~ 255            | Counter       |
 
 Example: DB100 (data block 100)
 
-**DB100.DBW20** means data word 20 in data block 100
+**DB100.DBW20** (DBddd.DBWddddd) means data word 20 in data block 100
 
 ## Siemens S7 3964R/RK512 {#endpoint-siemens-s7}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_s739rk |
-| ------------------- | --------------- |
+| Settings            | Parameters     |
+| ------------------- | -------------- |
+| Runtime module      | neuron_o_s739rk |
 | Driver name         | S739rk          |
 | Protocol            | 3964R/RK512     |
 | Physical interface  | RS232           |
 | Default settings    | 9600/8/N/1      |
 
-### DBddd.DBWddddd
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">ADDR</span>
 
 **ADDR** is the address as following
 
@@ -256,11 +289,12 @@ DB is the data block (0 – 999)
 
 DBW(_ **byte offset** _) is the data word in that data block
 
-| Byte | IW          | DDDD       | 0 ~ 4095           | Input                                  |
+| Type |     | Format | Range    | Description     |
 | ---- | ----------- | ---------- | ------------------ | -------------------------------------- |
+| Byte | IW          | DDDD       | 0 ~ 4095           | Input                                  |
 | Byte | QW          | DDDD       | 0 ~ 4095           | Output                                 |
 | Byte | MW          | DDDD       | 0 ~ 4095           | Marker Memory                          |
-| Byte | DB0~999.DBW | DDDDDDDDDD | 0 ~ 655350 ~ 65535 | Data Memory (must be in even byte no.) |
+| Byte | DB0~999.DBW | DDDDD<br>DDDDD | 0 ~ 65535<br>0 ~ 65535 | Data Memory (must be in even byte no.) |
 | Byte | T           | DDD        | 0 ~ 255            | Timer                                  |
 | Byte | C           | DDD        | 0 ~ 255            | Counter                                |
 
@@ -268,20 +302,23 @@ Note: The real DBW should be used (eg. DBW0, DBW2 etc) and the driver will read 
 
 Example: DB100 (data block 100)
 
-**DB100.DBW20** means data word 20 in data block 100
+**DB100.DBW20** (DBddd.DBWddddd) means data word 20 in data block 100
 
 ## Siemens FETCH/WRITE {#endpoint-siemens-fetch}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_siefw               |
-| ------------------- | ---------------------------- |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module      | neuron_o_siefw               |
 | Driver name         | siefw                        |
 | Protocol            | Siemens Fetch/Write Protocol |
-| Physical Interface  | Ethernet                     |
-| Default settings    | Port: 2200                   |
+| Physical interface  | Ethernet                     |
+| Default port no.    | 2200                   |
 
-### DBddd.DBWddddd
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">ADDR</span>
 
 **ADDR** is the address as following
 
@@ -289,11 +326,12 @@ DB is the data block (0 – 999)
 
 DBW(_ **byte offset** _) is the data word (start) in that data block.
 
-| Byte | IW          | DDDD       | 0 ~ 4095           | Input                                 |
+| Type |     | Format | Range    | Description     |
 | ---- | ----------- | ---------- | ------------------ | ------------------------------------- |
+| Byte | IW          | DDDD       | 0 ~ 4095           | Input                                 |
 | Byte | QW          | DDDD       | 0 ~ 4095           | Output                                |
 | Byte | MW          | DDDD       | 0 ~ 4095           | Marker Memory                         |
-| Byte | DB0~999.DBW | DDDDDDDDDD | 0 ~ 655350 ~ 65535 | Data Memory (must be in even byte no) |
+| Byte | DB0~999.DBW | DDDDD<br>DDDDD | 0 ~ 65535<br>0 ~ 65535 | Data Memory (must be in even byte no) |
 | Byte | T           | DDD        | 0 ~ 255            | Timer                                 |
 | Byte | C           | DDD        | 0 ~ 255            | Counter                               |
 
@@ -301,20 +339,23 @@ Note: There is a limitation in the protocol. The DB can only be between 1-255 an
 
 Note: In the Simatic PLC you just define a TCP/IP connection for either FETCH passive (read only) or WRITE passive (write only), listening on a certain port. Currently there is no FETCH/WRITE passive setting, so two connections with different ports are required, one for read and one for write.
 
-Example: **DB200.DBW20** means data word 20 in data block 200.
+Example: **DB200.DBW20** (DBddd.DBWddddd) means data word 20 in data block 200.
 
 ## Siemens Industrial Ethernet S7 ISOTCP {#endpoint-siemens-industrial}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_s7pro           |
-| ------------------- | ------------------------ |
+| Settings            | Parameters     |
+| ------------------- | -------------- |
+| Runtime module      | neuron_o_s7pro           |
 | Driver name         | s7pro                    |
 | Protocol            | S7 ISO TCP (S7 protocol) |
 | Physical interface  | Ethernet                 |
-| Default settings    | Port: 102                |
+| Default port no.    | 102                |
 
-### DBddd.DBWddddd
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">ADDR</span>
 
 **ADDR** is the address as following
 
@@ -322,15 +363,16 @@ Note: DB is the data block (0 – 999)
 
 DBW(_ **byte offset** _) is the data word (start) in that data block.
 
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
 | Byte | IW         | DDDD       | 0 ~ 4095           | Input                                  |
-| ---- | ---------- | ---------- | ------------------ | -------------------------------------- |
 | Byte | QW         | DDDD       | 0 ~ 4095           | Output                                 |
 | Byte | MW         | DDDD       | 0 ~ 4095           | Marker Memory                          |
-| Byte | DB0~999DBW | DDDDDDDDDD | 0 ~ 655350 ~ 65535 | Data Memory (must be in even byte no.) |
+| Byte | DB0~999DBW | DDDDD<br>DDDDD | 0 ~ 65535<br>0 ~ 65535 | Data Memory (must be in even byte no.) |
 | Byte | T          | DDD        | 0 ~ 255            | Timer                                  |
 | Byte | C          | DDD        | 0 ~ 255            | Counter                                |
 
-Example: **DB200.DBW20** means data word 20 in data block 200.
+Example: **DB200.DBW20** (DBddd.DBWddddd) means data word 20 in data block 200.
 
 S7P_SCRTSAP is the source TSAP for S7 protocol
 
@@ -338,21 +380,25 @@ S7P_DSTTSAP is the destination TSAP for S7 protocol
 
 ## Mitsubishi FX0S/FX0N/FX1S/FX1N/FX2 {#endpoint-mitsubishi-fx0s}
 
-General Details
+### General Details
 
-| Runtime Instance   | neuron_o_fxnpro |
-| ------------------ | --------------- |
-| Driver Name        | fxnpro          |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module     | neuron_o_fxnpro |
+| Driver name        | fxnpro          |
 | Protocol           | RS command      |
-| Physical Interface | RS232           |
+| Physical interface | RS232           |
 | Default settings   | 9600/7/E/1      |
 
-### ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">ADDR</span>
 
 **ADDR** is the register address
 
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
 | Bit   | X   | OOO  | 0 ~ 377     | Input Relay           |
-| ----- | --- | ---- | ----------- | --------------------- |
 | Bit   | Y   | OOO  | 0 ~ 377     | Output Relay          |
 | Bit   | M   | DDDD | 0 ~ 7999    | Auxiliary Relay       |
 | Bit   | T   | DDD  | 0 ~ 255     | Timer Relay           |
@@ -369,21 +415,25 @@ Example: **D100** means word 100 in D data memory area.
 
 ## Mitsubishi FX2N/FX3U/FX3G Series {#endpoint-mitsubishi-fx2n}
 
-General Details
+### General Details
 
-| Runtime Instance   | neuron_o_fx3u3g |
+| Settings           | Parameters     |
 | ------------------ | --------------- |
-| Driver Name        | fx3u3g          |
+| Runtime module     | neuron_o_fx3u3g |
+| Driver name        | fx3u3g          |
 | Protocol           | RS command      |
-| Physical Interface | RS232           |
+| Physical interface | RS232           |
 | Default settings   | 9600/7/E/1      |
 
-### ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">ADDR</span>
 
 **ADDR** is the register address as following:
 
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
 | Bit   | X   | OOO  | 0 ~ 764     | Input Relay           |
-| ----- | --- | ---- | ----------- | --------------------- |
 | Bit   | Y   | OOO  | 0 ~ 764     | Output Relay          |
 | Bit   | M   | DDDD | 0 ~ 7999    | Auxiliary Relay       |
 | Bit   | T   | DDD  | 0 ~ 511     | Timer Relay           |
@@ -401,21 +451,25 @@ Example: **D100** means word 100 in D data memory area.
 
 ## Mitsubishi Melsec E71 for Q Series {#endpoint-mitsubishi-melsec}
 
-General Details
+### General Details
 
-| Runtime module name | neuron_o_mele71 |
-| ------------------- | --------------- |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module      | neuron_o_mele71 |
 | Driver name         | mele71          |
 | Protocol            | MELSEC E71      |
-| Physical Media      | Ethernet        |
-| Default settings    | Port: 2000      |
+| Physical interface  | Ethernet        |
+| Default port no.    | 2000            |
 
-### ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">ADDR</span>
 
 **ADDR** is the register address as following:
 
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
 | Bit  | X   | HHHH    | 0 ~ 1fff    | Input Relay             |
-| ---- | --- | ------- | ----------- | ----------------------- |
 | Bit  | Y   | HHHH    | 0 ~ 1fff    | Output Relay            |
 | Bit  | M   | DDDDD   | 0 ~ 61439   | Internal Relay          |
 | Bit  | L   | DDDDD   | 0 ~ 32767   | Latch Relay             |
@@ -445,94 +499,110 @@ Example: **D100** means word 100 in D data memory area.
 
 ## Modbus RTU {#endpoint-modbus-rtu}
 
-General Details
+### General Details
 
-| Runtime Instance | neuron_o_mbsrtu |
-| ---------------- | --------------- |
-| Driver Name      | mbsrtu          |
-| Protocol         | Modbus RTU      |
-| Physical Media   | RS485           |
-| Default settings | 9600/8/N/1      |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module       | neuron_o_mbsrtu |
+| Driver name          | mbsrtu          |
+| Protocol             | Modbus RTU      |
+| Physical interface   | RS485           |
+| Default settings     | 9600/8/N/1      |
 
-### STN!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">STN!ADDR</span>
 
 **STN** is slave number or device ID (0-247)
 
 **ADDR** is the register address as following:
 
-| Bit  | 01/05/15 | 000001 ~ 065536 | Discrete Output Coils           |
-| ---- | -------- | --------------- | ------------------------------- |
-| Bit  | 02       | 100001 ~ 165536 | Discrete Input Contacts         |
-| Word | 04       | 300001 ~ 365536 | Analog Input Registers          |
-| Word | 03/06/16 | 400001 ~ 465536 | Analog Output Holding Registers |
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
+| Bit  | 01/05/15 | DDDDDD | 000001 ~ 065536 | Discrete Output Coils           |
+| Bit  | 02       | DDDDDD | 100001 ~ 165536 | Discrete Input Contacts         |
+| Word | 04       | DDDDDD | 300001 ~ 365536 | Analog Input Registers          |
+| Word | 03/06/16 | DDDDDD | 400001 ~ 465536 | Analog Output Holding Registers |
 
 ## Modbus TCP {#endpoint-modbus-tcp}
 
-General Details
+### General Details
 
-| Runtime Instance   | neuron_o_mbstcp |
-| ------------------ | --------------- |
-| Driver Name        | mbstcp          |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module     | neuron_o_mbstcp |
+| Driver name        | mbstcp          |
 | Protocol           | Modbus TCP      |
-| Physical Interface | Ethernet        |
-| Default settings   | Port: 502       |
+| Physical interface | Ethernet        |
+| Default port no.   | 502             |
 
-### STN!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">STN!ADDR</span>
 
 **STN** is slave number or device ID (0-247)
 
 **ADDR** is the register address as following:
 
-| Bit  | 01/05/15 | 000001 ~ 065536 | Discrete Output Coils           |
-| ---- | -------- | --------------- | ------------------------------- |
-| Bit  | 02       | 100001 ~ 165536 | Discrete Input Contacts         |
-| Word | 04       | 300001 ~ 365536 | Analog Input Registers          |
-| Word | 03/06/16 | 400001 ~ 465536 | Analog Output Holding Registers |
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
+| Bit  | 01/05/15 | DDDDDD | 000001 ~ 065536 | Discrete Output Coils           |
+| Bit  | 02       | DDDDDD | 100001 ~ 165536 | Discrete Input Contacts         |
+| Word | 04       | DDDDDD | 300001 ~ 365536 | Analog Input Registers          |
+| Word | 03/06/16 | DDDDDD | 400001 ~ 465536 | Analog Output Holding Registers |
 
 Example:**2!404001** means word address 4000 with in slave number 2.
 
 ## Modbus RTU over TCP {#endpoint-modbus-rtu-tcp}
 
-General Details
+### General Details
 
-| Runtime Instance   | neuron_o_mbsrot     |
-| ------------------ | ------------------- |
-| Driver Name        | mbsrot              |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module     | neuron_o_mbsrot     |
+| Driver name        | mbsrot              |
 | Protocol           | Modbus RTU over TCP |
-| Physical Interface | Ethernet            |
-| Default settings   | Port: 502           |
+| Physical interface | Ethernet            |
+| Default port no.   | 502                 |
 
-### STN!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">STN!ADDR</span>
 
 **STN** is slave number or device ID (0-247)
 
 **ADDR** is the register address as following:
 
-| Bit  | 01/05/15 | 000001 ~ 065536 | Discrete Output Coils           |
-| ---- | -------- | --------------- | ------------------------------- |
-| Bit  | 02       | 100001 ~ 165536 | Discrete Input Contacts         |
-| Word | 04       | 300001 ~ 365536 | Analog Input Registers          |
-| Word | 03/06/16 | 400001 ~ 465536 | Analog Output Holding Registers |
+| Type |     | Format | Range    | Description     |
+| ---- | --- | ------ | -------- | --------------- |
+| Bit  | 01/05/15 | DDDDDD | 000001 ~ 065536 | Discrete Output Coils           |
+| Bit  | 02       | DDDDDD | 100001 ~ 165536 | Discrete Input Contacts         |
+| Word | 04       | DDDDDD | 300001 ~ 365536 | Analog Input Registers          |
+| Word | 03/06/16 | DDDDDD | 400001 ~ 465536 | Analog Output Holding Registers |
 
 Example:**2!404001** means word address 4000 with in slave number 2.
 
 ## IEC 61850 {#endpoint-iec-61850}
 
-General Details
+### General Details
 
-| Runtime Instance   | neuron_o_i61850 |
-| ------------------ | --------------- |
-| Driver Name        | i61850          |
+| Settings           | Parameters     |
+| ------------------ | -------------- |
+| Runtime module     | neuron_o_i61850 |
+| Driver name        | i61850          |
 | Protocol           | IEC 61850       |
-| Physical Interface | Ethernet        |
-| Default settings   | Port: 102       |
+| Physical interface | Ethernet        |
+| Default settings   | 102             |
 
-### FC!ADDR
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">FC!ADDR</span>
 
 **FC** is functional constraints value as following:
 
-| 0   | IEC61850_FC_ST | Status information                  |
+| Fn  |     Format     |     Description     |
 | --- | -------------- | ----------------------------------- |
+| 0   | IEC61850_FC_ST | Status information                  |
 | 1   | IEC61850_FC_MX | Measurands - analog values          |
 | 2   | IEC61850_FC_SP | Setpoint                            |
 | 3   | IEC61850_FC_SV | Substitution                        |
@@ -571,16 +641,19 @@ means the functional constraint of this tag is 1 (IEC61850_FC_MX –analog measu
 
 ## OPC UA {#endpoint-opc-ua}
 
-General Details
+### General Details
 
-| Runtime Instance   | neuron_o_opcua |
+| Settings           | Parameters     |
 | ------------------ | -------------- |
-| Driver Name        | opcua          |
+| Runtime module     | neuron_o_opcua |
+| Driver name        | opcua          |
 | Protocol           | OPC UA         |
-| Physical Interface | Ethernet       |
-| Default settings   | Port: 4840     |
+| Physical interface | Ethernet       |
+| Default port no.   | 4840           |
 
-### IX!NODEID
+### Address String
+
+> <span style="font-family:sans-serif; font-size:2em;">IX!NODEID</span>
 
 **IX** is the namespace index. (1-32767)
 

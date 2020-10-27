@@ -1,6 +1,6 @@
 # Web Interface
 
-This section describes to setup Neuron in Web interface. To start the web interface, open a web browser (i.e, Microsoft Edge, Chrome, or Firefox). Enter the address of gateway and port no. will be 7000 for Neuron. For example,
+This section describes to setup Neuron in Web interface. To start the web interface, open a web browser (i.e, Microsoft Edge, Chrome, or Firefox). Enter the address of gateway and port no. will be 7000 for Neuron.
 
 ![](./assets/web-interface.png)
 

@@ -1,123 +1,95 @@
 # Installation {#endpoint-download}
 
-Following section describes how to install the Neuron software package on a x86 or ARM Linux device.
+Following section describes how to install the Neuron software package on a Linux system device.
 
 ## Download
 
-Neuron software package can be download from EMQ website [https://www.emqx.io](https://www.emqx.io/). For docker image, please download from docker hub website [https://hub.docker.com/r/emq/neuron](https://hub.docker.com/r/emq/neuron).
+Neuron software package is available in EMQ website [https://www.emqx.io](https://www.emqx.io/).
 
-Neuron supports following Linux system:
+| Package Name                                     | Architecture System   |
+| ------------------------------------------------ | --------------------- |
+| _neuron-x.y.z-linux-x86_64.tar.gz_               | x86 64-bit            |
+| _neuron-x.y.z-linix-armv7l.tar.gz_               | ARM hardware floating |
+| _neuron-x.y.z-linix-aarch64.tar.gz_              | ARM 64-bit            |
 
-For x86 64-bit system,<br>Download file: _neuron-0.5-x86_64.tar.gz_
-
-For ARM hardware floating support system,<br>Download file: _neuron-0.5-armhf.tar.gz_
-
-For ARM 64-bit system,<br>Download file: _neuron-0.5-arm64.tar.gz_
-
-For the number 0.5, 0 is major version number which may change if the entire system structure enhancement, 5 is minor version number which may change if there will be some additional features or there are some bug fixed patches for the Neuron software.
-
-Next token specifies the platform dependent for installation. For example, x86_64 means x86 64bit platform, arm64 means ARM 64bit platform, etc.
+For the version number x.y.z, x is major version number which may change if the entire system structure enhancement, y is minor version number which may change if there will be some additional features. z is the patch number for bug fix in the Neuron software.
 
 ## Pre-requisites {#endpoint-pre-requisites}
 
 The following Linux distros or devices have been tested for Neuron.
 
-| Linux distros or devices                                                  | Neuron package required  |
-| ------------------------------------------------------------------------- | ------------------------ |
-| Debian package system for x86<br>Debian 9.x<br>Ubuntu 16.xx Desktop       | neuron-1.4-x86_64.tar.gz |
-| Ubuntu 18.xx Desktop<br>Linuxmint 18                                      | neuron-1.4-x86_64.tar.gz |
-| Redhat package system for x86<br>Fedora 30 Workstation<br>Centos 7.x-1810 | neuron-1.4-x86_64.tar.gz |
-| Raspberry Pi 2                                                            | neuron-1.4-armhf.tar.gz  |
-| Raspberry Pi 3                                                            | neuron-1.4-arm64.tar.gz  |
-| Raspberry Pi 4                                                            | Neuron-1.4-arm64.tar.gz  |
+| Linux distros or devices                                                             | Neuron package required           |
+| ------------------------------------------------------------------------------------ | --------------------------------- |
+| **Debian package system for x86_64** <br>Ubuntu 20.xx<br>Ubuntu 18.xx Desktop<br>Ubuntu 16.xx Desktop (install openssl1.1)<br>Ubuntu 14.xx Desktop (install openssl1.1)  | neuron-x.y.z-linux-x86_64.tar.gz |
+| **Redhat package system for x86_64** <br>Centos 8<br>Centos 7.x (install openssl1.1) | neuron-x.y.z-linux-x86_64.tar.gz  |
+| **Raspberry Pi 2** <br>Pi 4b+<br>Pi 3b+<br>Pi 2b+ (install openssl1.1)               | neuron-x.y.z-linux-armv7l.tar.gz  |
+| armv7l Ubuntu Linux System                                                           | neuron-x.y.z-linux-armv7l.tar.gz  |
+| aarch64 Ubuntu Linux System                                                          | neuron-x.y.z-linux-aarch64.tar.gz |
+
+Note: Some Linux distros require **openssl1.1** installation.
+For Debian package, wget [http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb](http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb)
+For Redhat package, [https://linuxscriptshub.com/update-openssl-1-1-0-centos-6-9-7-0](https://linuxscriptshub.com/update-openssl-1-1-0-centos-6-9-7-0/)
 
 ## New Installation {#endpoint-new-installation}
 
-This section describes how to install the Neuron software for the first time on Linux system. New Neuron software **MUST** be installed in a home directory of any user account. We recommend &quot;neuron&quot; account for installation.
+New Neuron software can be installed in a home directory of any user account. In case a user account is needed, we recommand &quot;neuron&quot; for installation.
 
-Note: For the new installation, system user password might be required for creating user account.
-
-1. Create a new Linux account &quot;neuron&quot; in your Linux distribution which will be used for Neuron software package installation. Or run following command to create a user account.
+1. Extracting the software package to any directory, (i.e. /home/neuron ):
 
    ```bash
-   ~\$ sudo useradd neuron -m -s /bin/bash
+   ~\$ tar -zxvf neuron-x.y.z-linux-x86_64.tar.gz
    ```
 
-2. Exit and Login as &quot;neuron&quot; user to Linux prompt ~\$.
-
-3. Download Neuron software package from EMQ website.
-
-4. Extracting the software package to **\$HOME** directory, (i.e. /home/neuron ) enter the command:
+2. Run Neuron for the first time to buildup Neuron data directories _dat_:
 
    ```bash
-   ~\$ tar -zxvf neuron-0.5-x86_64.tar.gz
+   ~\$ {PATH}/neuron start
    ```
 
-5. Run Neuron first time to build data directories ~/dat. enter the command:
+## Starting the Neuron System {#endpoint-starting}
 
-   ```bash
-   ~\$ neuronsrt
-   ```
-
-6. Stop Neuron running, enter the command:
-
-   ```bash
-   ~\$ neuronsrt -s
-   ```
-
-## Setting the Shell Path {#endpoint-setting}
-
-This section describes how to setup shell execution path for Neuron software. Different Linux distribution has its own way. Please refer to your Linux manual. For Ubuntu, the .bash_profile will be modified as follow:
+To start Neuron system by the command:
 
 ```bash
-# Neuron System environment
-
-PATH=$PATH:$HOME/bin:.
-
-NEURONPATH=\$HOME
-
-export NEURONPATH
-
-NEURONDATPATH=\$NEURONPATH/dat
-
-export NEURONDATPATH
+~\$ {PATH}/neuron start
 ```
 
-Notes: Both $NEURONPATH and $NEURONDATPATH are important variables for running Neuron in shell.
+## Stopping the Neuron System {#endpoint-stopping}
 
-## Starting the System {#endpoint-starting}
-
-This section describes how to start the Neuron.
-
-1. login as &quot;neuron&quot;
-
-2. The Neuron can be started by
+To stop the running Neuron by the command:
 
 ```bash
-~\$ neuronsrt
+~\$ {PATH}/neuron stop
 ```
 
-## Stopping the System {#endpoint-stopping}
+## Checking the Neuron System {#endpoint-checking}
 
-This section describes how to stop the Neuron.
-
-1. login as &quot;neuron&quot;
-
-2. The Neuron will stops by entering the command
+To checkup the status of Neuron:
 
 ```bash
-~\$ neuronsrt -s
+~\$ {PATH}/neuron status
 ```
 
-## Command Switches {#endpoint-command}
+## Optional Switches {#endpoint-command}
 
-This section describes the available switches for &quot;neuronsrt&quot; command.
+Some more useful switches for &quot;neuron&quot; is available.
 
-| Switch | Description                     |
-| ------ | ------------------------------- |
-| -h     | print help.                     |
-| -p     | print running status.           |
-| -r     | restart only                    |
-| -n     | restart with new configuration. |
-| -s     | stop running                    |
-| -f     | fix (dat) data directories.     |
+Usage: neuron [start|stop|status] [options]
+| options:                        | description:                          |
+| ------------------------------- | ------------------------------------- |
+| -i or --instance `<instanceno>` |instance no `<0-9>`                    |
+| -u or --uuid `<uuid>`           |universal unique id `<max 36 chars>`   |
+
+## Running in Docker {#endpoint-docker}
+
+To get the docker image from [https://hub.docker.com](https://hub.docker.com)
+
+```bash
+~\$ docker pull emqx/neuron:1.0.0
+```
+
+To start docker container
+
+```bash
+~\$ docker run -d --name neuron -p 7000:7000 emqx/neuron:1.0.0
+```

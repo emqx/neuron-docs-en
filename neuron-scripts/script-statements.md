@@ -22,9 +22,9 @@ This statement marks a label number (1-999) at this location, which can be used 
 
 Example:
 
-|        |                                |
-| ------ | ------------------------------ |
-| POS120 | \* goto here if end of routine |
+| COMMENT |                                |
+| ------- | ------------------------------ |
+| POS120  | \* goto here if end of routine |
 
 ### DO {#endpoint-do}
 
@@ -52,5 +52,5 @@ Example:
 | ------- | -------------------------------- |
 | IF      | st == 10                         |
 | THEN    | st = 11;                         |
-| ELSE IF | st ==25                          |
-| THEN    | st =26;                          |
+| ELSE IF | st == 25                         |
+| THEN    | st = 26;                         |
