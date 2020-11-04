@@ -44,6 +44,18 @@ New Neuron software can be installed in a home directory of any user account. In
 
    ```bash
    ~\$ {PATH}/neuron start
+   Directory {PATH}/dat created
+   Directory {PATH}/dat/0 created
+   Directory {PATH}/dat/0/adm created
+   Directory {PATH}/dat/0/adm/usr created
+   Directory {PATH}/dat/0/alm created
+   Directory {PATH}/dat/0/cfg created
+   Directory {PATH}/dat/0/log created
+   Directory {PATH}/dat/0/scp created
+   Directory {PATH}/dat/0/scp/subr created
+   Directory {PATH}/dat/0/obj created
+   Directory {PATH}/dat/0/trd created
+   Neuron instance 0 is now running with PID:6312 Port:7000
    ```
 
 ## Starting the Neuron System {#endpoint-starting}
@@ -52,22 +64,80 @@ To start Neuron system by the command:
 
 ```bash
 ~\$ {PATH}/neuron start
+Neuron instance 0 is now running with PID:6037 Port:7000
 ```
 
 ## Stopping the Neuron System {#endpoint-stopping}
 
-To stop the running Neuron by the command:
+To stop the running of Neuron System by the command:
 
 ```bash
 ~\$ {PATH}/neuron stop
+Neuron instance 0 is stopping ...
+Stopped !
+```
+
+## Starting the specific Neuron System {#endpoint-specific-starting}
+
+To start specific Neuron instance by the command:
+
+```bash
+~\$ {PATH}/neuron start -i7
+Neuron instance 7 is now running with PID:8097 Port:7007
+```
+
+## Stopping the specific Neuron System {#endpoint-specific-stopping}
+
+To stop the running of specific Neuron by the command:
+
+```bash
+~\$ {PATH}/neuron stop -i7
+Neuron instance 7 is stopping ...
+Stopped !
+```
+
+## Starting multiple Neuron Systems (#endpoint-multi-starting)
+
+To start multiple Neuron system instances by the command
+
+```bash
+~\$ {PATH}/neuron start -a5
+Neuron instance 0 is now running with PID:6066 Port:7000
+Neuron instance 1 is now running with PID:6069 Port:7001
+Neuron instance 2 is now running with PID:6076 Port:7002
+Neuron instance 3 is now running with PID:6087 Port:7003
+Neuron instance 4 is now running with PID:6090 Port:7004
+```
+
+## Stopping multiple Neuron Systems {#endpoint-multi-stopping}
+
+To stop the running of multiple Neuron systems by the command:
+
+```bash
+~\$ {PATH}/neuron stop -a5
+Neuron instance 0 is stopping ...
+Stopped !
+Neuron instance 1 is stopping ...
+Stopped !
+Neuron instance 2 is stopping ...
+Stopped !
+Neuron instance 3 is stopping ...
+Stopped !
+Neuron instance 4 is stopping ...
+Stopped !
 ```
 
 ## Checking the Neuron System {#endpoint-checking}
 
-To checkup the status of Neuron:
+To checkup the status of Neuron systems:
 
 ```bash
 ~\$ {PATH}/neuron status
+Neuron instance 0 is running with PID:6118 Port:7000
+Neuron instance 1 is running with PID:6121 Port:7001
+Neuron instance 2 is running with PID:6132 Port:7002
+Neuron instance 3 is running with PID:6139 Port:7003
+Neuron instance 4 is running with PID:6144 Port:7004
 ```
 
 ## Optional Switches {#endpoint-command}
@@ -77,8 +147,10 @@ Some more useful switches for &quot;neuron&quot; is available.
 Usage: neuron [start|stop|status] [options]
 | options:                        | description:                          |
 | ------------------------------- | ------------------------------------- |
-| -i or --instance `<instanceno>` |instance no `<0-9>`                    |
-| -u or --uuid `<uuid>`           |universal unique id `<max 36 chars>`   |
+| -a or --allinstance `<number>`  | no. of instances `<2-10>`             |
+| -i or --instance `<instanceno>` | instance no `<0-9>`                   |
+| -u or --uuid `<uuid>`           | universal unique id `<max 36 chars>`  |
+where [-a|-i] are exclusive options.
 
 ## Running in Docker {#endpoint-docker}
 

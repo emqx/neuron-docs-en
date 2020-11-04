@@ -9,6 +9,10 @@
   - [New Installation](getting-started/install.md#endpoint-new-installation)
   - [Starting the System](getting-started/install.md#endpoint-starting)
   - [Stopping the System](getting-started/install.md#endpoint-stopping)
+  - [Starting the specific System](getting-started/install.md#endpoint-specific-starting)
+  - [Stopping the specific System](getting-started/install.md#endpoint-specific-stopping)
+  - [Starting multiple Systems](getting-started/install.md#endpoint-multi-starting)
+  - [Stopping multiple Systems](getting-started/install.md#endpoint-multi-stopping)
   - [Optional Switches](getting-started/install.md#endpoint-command)
   - [Running in Docker](getting-started/install.md#endpoint-docker)
 
