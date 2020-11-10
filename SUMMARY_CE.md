@@ -16,6 +16,12 @@
   - [Optional Switches](getting-started/install.md#endpoint-command)
   - [Running in Docker](getting-started/install.md#endpoint-docker)
 
+- [Quick Installation](getting-started/install.md#endpoint-quick_started)
+
+  - [Environment Setup](getting-started/install.md#endpoint-intall)
+  - [Resource Preparation](getting-started/install.md#endpoint-resources)
+  - [System Running and Usage](getting-started/install.md#endpoint-running)
+
 - Web Interface
 
   - [Login](web-interface/login.md)

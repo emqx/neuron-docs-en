@@ -150,7 +150,8 @@ Usage: neuron [start|stop|status] [options]
 | -a or --allinstance `<number>`  | no. of instances `<2-10>`             |
 | -i or --instance `<instanceno>` | instance no `<0-9>`                   |
 | -u or --uuid `<uuid>`           | universal unique id `<max 36 chars>`  |
-where [-a|-i] are exclusive options.
+
+where `[-a|-i]` are exclusive options.
 
 ## Running in Docker {#endpoint-docker}
 

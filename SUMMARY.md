@@ -9,12 +9,18 @@
   - [New Installation](getting-started/install.md#endpoint-new-installation)
   - [Starting the System](getting-started/install.md#endpoint-starting)
   - [Stopping the System](getting-started/install.md#endpoint-stopping)
-  - [Starting the specific System](getting-started/install.md#endpoint-specific-starting)
-  - [Stopping the specific System](getting-started/install.md#endpoint-specific-stopping)
-  - [Starting multiple Systems](getting-started/install.md#endpoint-multi-starting)
-  - [Stopping multiple Systems](getting-started/install.md#endpoint-multi-stopping)
+  - [Starting the Specific System](getting-started/install.md#endpoint-specific-starting)
+  - [Stopping the Specific System](getting-started/install.md#endpoint-specific-stopping)
+  - [Starting Multiple Systems](getting-started/install.md#endpoint-multi-starting)
+  - [Stopping Multiple Systems](getting-started/install.md#endpoint-multi-stopping)
   - [Optional Switches](getting-started/install.md#endpoint-command)
   - [Running in Docker](getting-started/install.md#endpoint-docker)
+
+- [Quick Installation](getting-started/install.md#endpoint-quick_started)
+
+  - [Environment Setup](getting-started/install.md#endpoint-intall)
+  - [Resource Preparation](getting-started/install.md#endpoint-resources)
+  - [System Running and Usage](getting-started/install.md#endpoint-running)
 
 - Web Interface
 
